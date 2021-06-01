@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head>
+
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Shop</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous"> -->
+</head>
+
+<body onload="init()">
+    <h1 data-trans="titleh1">Welcome To Arthur's Book Store</h1>
+    <h2 data-trans="subtitle"> Best Books, Best Prices!</h2>
+
+    <select onchange="onSetLang(this.value)">
+        <option value="en">English</option>
+        <option value="he">עברית</option>
+    </select>
+
+    <div class="add-book-name">
+        <form onsubmit="onAddBook(event)">
+            <input data-trans="add-book-placeholder" name='bookname' type='text' placeholder="Add Book Name">
+            <input data-trans="add-price-placeholder" name="price" type='text' placeholder="Add Book Price">
+            <button data-trans="btn-add-book" class="add-new"> Add New Book </button>
+        </form>
+    </div>
+    <div class="books-container">
+
+        <table class="table">
+            <thead>
+                <th data-trans="id" scope="col">Id </th>
+                <th data-trans="title" class="sort col" onclick="onSortBy('title')" > Title </th>
+                <th data-trans="price" class="sort col" onclick="onSortBy('price')" > Price </th>
+                <th data-trans="actions" class="col"> ACTIONS </th>
+            </thead>
+            <tbody class="body-table">
+
+            </tbody>
+        </table>
+
+        <section class="modal" hidden>
+            <h3>
+                </h5>
+                <h4>
+                    </h6>
+                    <div class="image-container"></div>
+                    <div class="rating"></div>
+                    <p></p>
+                    <button data-trans="btn-close" onclick="onCloseModal()"> Close </button>
+        </section>
+
+        <div class="pagination">
+            <button data-trans="btn-prev" onclick="(onTurnPage(-1))"> Prev</button>
+            <span>1</span>
+            <button data-trans="btn-next" onclick="(onTurnPage(1))"> Next</button>
+        </div>
+
+    </div>
+    <script src="js/util-service.js"></script>
+    <script src="js/i18n-service.js"></script>
+    <script src="js/storage-service.js"></script>
+    <script src="js/book-controller.js"></script>
+    <script src="js/book-service.js"></script>
+</body>
+
+</html>
